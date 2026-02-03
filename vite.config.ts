@@ -7,13 +7,11 @@ export default defineConfig({
   define: {
     'process.env.API_KEY': JSON.stringify(process.env.API_KEY || '')
   },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.jsx', '.js']
+  },
   build: {
     outDir: 'dist',
-    emptyOutDir: true,
-    rollupOptions: {
-      input: {
-        main: './index.html'
-      }
-    }
+    emptyOutDir: true
   }
 });

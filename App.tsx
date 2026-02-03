@@ -1,10 +1,10 @@
 
-import React, { useState, useEffect, useCallback } from 'react';
-import { View, Question, Response, UserProfile, UserDisplayMode } from './types';
-import { ICONS } from './constants';
-import { Navigation } from './components/Navigation';
-import { supabase } from './services/supabaseClient';
-import { db } from './services/db';
+import React, { useState, useEffect } from 'react';
+import { View, Question, Response, UserDisplayMode } from './types.ts';
+import { ICONS } from './constants.tsx';
+import { Navigation } from './components/Navigation.tsx';
+import { supabase } from './services/supabaseClient.ts';
+import { db } from './services/db.ts';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>('home');
@@ -27,7 +27,6 @@ const App: React.FC = () => {
     setAuthError(null);
     
     try {
-      // 1. Autenticação com Fallback
       const { data: authData, error: sessionError } = await supabase.auth.getSession();
       if (sessionError) console.warn("Erro ao recuperar sessão:", sessionError);
 
@@ -46,7 +45,6 @@ const App: React.FC = () => {
 
       setUser(currentUser);
       
-      // 2. Carregar Pergunta com Fallback Seguro
       let question;
       try {
         question = await db.getTodayQuestion();
@@ -61,7 +59,6 @@ const App: React.FC = () => {
       }
       setCurrentQuestion(question);
 
-      // 3. Carregar Histórico
       if (currentUser && question) {
         const history = await db.getUserHistory(currentUser.id);
         setMyHistory(history);
