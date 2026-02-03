@@ -152,7 +152,7 @@ const App: React.FC = () => {
           <ICONS.User className="text-amber-600 w-8 h-8" />
         </div>
         <h2 className="serif text-2xl text-stone-800 mb-4">Configuração Necessária</h2>
-        <p className="text-stone-500 text-sm leading-relaxed mb-8">Ative <b>Anonymous Sign-ins</b> no Dashboard do Supabase (Authentication > Providers).</p>
+        <p className="text-stone-500 text-sm leading-relaxed mb-8">Ative <b>Anonymous Sign-ins</b> no Dashboard do Supabase (Authentication &gt; Providers).</p>
         <button onClick={initApp} className="px-8 py-3 bg-stone-900 text-white rounded-full text-xs uppercase tracking-widest">Tentar Novamente</button>
       </div>
     );
