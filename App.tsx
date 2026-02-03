@@ -1,10 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import { View, Question, Response, UserDisplayMode } from './types.ts';
-import { ICONS } from './constants.tsx';
-import { Navigation } from './components/Navigation.tsx';
-import { supabase } from './services/supabaseClient.ts';
-import { db } from './services/db.ts';
+import { View, Question, Response, UserDisplayMode } from './types';
+import { ICONS } from './constants';
+import { Navigation } from './components/Navigation';
+import { supabase } from './services/supabaseClient';
+import { db } from './services/db';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>('home');
