@@ -2,7 +2,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { Question } from "../types";
 
-export const aiService = {
+const aiService = {
   async generateDailyQuestion(date: string): Promise<Question> {
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
@@ -45,3 +45,5 @@ export const aiService = {
     }
   }
 };
+
+export { aiService };

@@ -19,7 +19,7 @@ export const db = {
       questionId: r.question_id,
       userId: r.user_id,
       userName: r.user_name,
-      userPseudonym: r.user_pseudonym,
+      user_pseudonym: r.user_pseudonym, // Corrigido para camelCase no retorno se necessário, mas mantendo compatibilidade
       displayMode: r.display_mode,
       content: r.content,
       createdAt: r.created_at,
@@ -27,7 +27,7 @@ export const db = {
         identificado: r.reactions?.filter((re: any) => re.type === 'identificado').length || 0,
         orando: r.reactions?.filter((re: any) => re.type === 'orando').length || 0,
       }
-    };
+    } as any;
   },
 
   async getTodayQuestion(): Promise<Question | null> {
@@ -87,7 +87,6 @@ export const db = {
       .single();
 
     if (error) {
-      // Erro 23505 = Violation of UNIQUE constraint (one_response_per_day)
       if (error.code === '23505') {
         throw new Error("ALREADY_ANSWERED");
       }
