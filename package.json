@@ -3,6 +3,21 @@
   "name": "pergunta-que-doi",
   "version": "1.0.0",
   "private": true,
-  "description": "Uma plataforma cristã minimalista para reflexão profunda.",
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "@supabase/supabase-js": "2.42.0",
+    "@google/genai": "^1.39.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.0",
+    "typescript": "^5.7.0"
+  }
 }
